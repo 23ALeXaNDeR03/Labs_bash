@@ -1,13 +1,4 @@
 #!/bin/bash
 
-cd /etc || exit
-
-file_count=0
-
-for item in *; do
-
-    if [ -f "$item" ]; then
-        ((file_count++)) 
-    fi 
-done
-echo "Number of files in /etc: $file_count"
+files_count=$(find /etc -type f | wc -1)
+echo "Number of files in /etc directory: $files_count"
